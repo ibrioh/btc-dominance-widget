@@ -4,11 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BTC Dominance Chart</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0e1116;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      color: #e0e0e0;
+      font-family: Inter, Arial, sans-serif;
+    }
+    h2 {
+      margin: 20px 0 10px 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #f5f5f5;
+    }
+    .chart-container {
+      width: 95%;
+      height: 750px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
-<body style="margin:0; background-color:#0e1116;">
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container">
-    <div id="tradingview_btcd"></div>
+<body>
+  <h2>BTC Dominance (CRYPTOCAP:BTC.D)</h2>
+  <div class="chart-container">
+    <div class="tradingview-widget-container">
+      <div id="tradingview_btcd"></div>
+    </div>
   </div>
 
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -21,13 +49,19 @@
       "theme": "dark",
       "style": "1",
       "locale": "en",
-      "hide_top_toolbar": true,
-      "hide_legend": true,
+      "hide_top_toolbar": false,   // Toolbar an (zeigt Name, Zeitrahmen etc.)
+      "hide_legend": false,
+      "withdateranges": false,
       "backgroundColor": "#0e1116",
+      "allow_symbol_change": false,
       "width": "100%",
-      "height": "100vh"
+      "height": "100%",
+      "autosize": true,
+      "studies": [],
+      "scale_position": "right",
+      "scale_mode": "Normal",     // Prozentwerte anzeigen
+      "percentage": true          // <- Zeigt Werte in %
     });
   </script>
-  <!-- TradingView Widget END -->
 </body>
 </html>
